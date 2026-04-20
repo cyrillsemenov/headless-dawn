@@ -58,8 +58,8 @@ def build_theme():
             redirect_content = f.read()
 
         redirect_logic = ""
-        script_start = redirect_content.find(
-            "<script>", redirect_content.find("function getCookie(name)")
+        script_start = redirect_content.rfind(
+            "<script>", 0, redirect_content.find("function getCookie(name)")
         )
         script_end = redirect_content.find("</script>", script_start)
 
