@@ -84,24 +84,6 @@ def build_theme():
                 theme_content[:head_end_idx] + injection + theme_content[head_end_idx:]
             )
 
-            div_start = redirect_content.find('<div class="redirect">')
-            div_end = redirect_content.find("</div>", div_start)
-            if div_start != -1 and div_end != -1:
-                html_logic = redirect_content[div_start : div_end + 6]
-                body_start_idx = theme_content.find("<body")
-                body_end_idx = theme_content.find(">", body_start_idx)
-                if body_end_idx != -1:
-                    injection_html = f"""
-    {{%- if should_redirect -%}}
-      {html_logic}
-    {{%- endif -%}}
-"""
-                    theme_content = (
-                        theme_content[: body_end_idx + 1]
-                        + injection_html
-                        + theme_content[body_end_idx + 1 :]
-                    )
-
             with open(theme_liquid_path, "w", encoding="utf-8") as f:
                 f.write(theme_content)
 
