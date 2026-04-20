@@ -23,13 +23,8 @@ jobs:
       - name: Build Theme
         run: uv run build.py
 
-      - name: Zip Theme
-        run: |
-          cd dist
-          zip -r ../theme.zip ./*
-
       - name: Upload Theme Artifact
         uses: actions/upload-artifact@v4
         with:
           name: headless-dawn-theme
-          path: theme.zip
+          path: dist/
