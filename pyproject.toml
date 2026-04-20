@@ -1,0 +1,7 @@
+[project]
+name = "headless-dawn-theme"
+version = "0.1.0"
+description = "A hybrid theme wrapper combining Shopify's Dawn with a Hydrogen headless redirect architecture."
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []

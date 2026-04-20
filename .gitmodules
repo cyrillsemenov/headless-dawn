@@ -1,0 +1,6 @@
+[submodule "dawn"]
+	path = dawn
+	url = https://github.com/Shopify/dawn.git
+[submodule "hydrogen-redirect"]
+	path = hydrogen-redirect
+	url = https://github.com/Shopify/hydrogen-redirect-theme.git
