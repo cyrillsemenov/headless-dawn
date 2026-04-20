@@ -20,7 +20,7 @@ def build_theme():
     templates_dir = os.path.join(redirect_dir, "templates")
     if os.path.exists(templates_dir):
         for item in os.listdir(templates_dir):
-            if item.endswith(".json"):
+            if item.endswith(".json") and item != "cart.json":
                 src = os.path.join(templates_dir, item)
                 dst = os.path.join(dist_dir, "templates", item)
                 shutil.copy2(src, dst)
@@ -72,7 +72,10 @@ def build_theme():
         head_end_idx = theme_content.find("</head>")
         if head_end_idx != -1:
             injection = f"""
-    {{%- assign should_redirect = template != blank and template.name != 'cart' and template.name != 'login' and template.name != 'register' and template.name != 'account' and template.name != 'addresses' and template.name != 'order' -%}}
+    {{%- assign should_redirect = false -%}}
+    {{%- if template != blank and template.name != 'cart' and template.name != 'login' and template.name != 'register' and template.name != 'account' and template.name != 'addresses' and template.name != 'order' -%}}
+      {{%- assign should_redirect = true -%}}
+    {{%- endif -%}}
     {{%- if settings.storefront_hostname != blank and should_redirect -%}}
       {redirect_logic}
     {{%- endif -%}}
