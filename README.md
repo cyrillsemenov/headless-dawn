@@ -2,7 +2,7 @@
 
 Build wrapper combining [Shopify Dawn](https://github.com/Shopify/dawn) and [Hydrogen Redirect Theme](https://github.com/Shopify/hydrogen-redirect-theme).
 
-**Goal**: Headless index/product/collection (redirect to React/Hydrogen) + native Dawn for cart/account.
+**Goal**: Headless index/product/collection + native Dawn for cart/account.
 
 ## Architecture
 
@@ -13,7 +13,7 @@ Build wrapper combining [Shopify Dawn](https://github.com/Shopify/dawn) and [Hyd
 
 ```bash
 # 1. Setup
-git clone --recursive <repo>
+git clone --recursive https://github.com/cyrillsemenov/headless-dawn.git
 
 # 2. Build
 uv run python build.py
