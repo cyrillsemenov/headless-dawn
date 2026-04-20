@@ -13,7 +13,7 @@ Build wrapper combining [Shopify Dawn](https://github.com/Shopify/dawn) and [Hyd
 
 ```bash
 # 1. Setup
-git clone --recursive https://github.com/cyrillsemenov/headless-dawn.git
+git clone --recursive https://github.com/bedti-me/headless-dawn.git
 
 # 2. Build
 uv run python build.py
