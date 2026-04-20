@@ -43,7 +43,8 @@ def build_theme():
         with open(dawn_schema_path, "r", encoding="utf-8") as f:
             dawn_schema = json.load(f)
 
-        dawn_schema.extend(redirect_schema)
+        storefront_settings = [section for section in redirect_schema if section.get("name") != "theme_info"]
+        dawn_schema.extend(storefront_settings)
 
         with open(dawn_schema_path, "w", encoding="utf-8") as f:
             json.dump(dawn_schema, f, indent=2)
